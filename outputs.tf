@@ -1,3 +1,7 @@
+output "iothub_consumer_groups_id" {
+  description = "Map of id values across all iothub_consumer_groups, keyed the same as var.iothub_consumer_groups"
+  value       = { for k, v in azurerm_iothub_consumer_group.iothub_consumer_groups : k => v.id }
+}
 output "iothub_consumer_groups_eventhub_endpoint_name" {
   description = "Map of eventhub_endpoint_name values across all iothub_consumer_groups, keyed the same as var.iothub_consumer_groups"
   value       = { for k, v in azurerm_iothub_consumer_group.iothub_consumer_groups : k => v.eventhub_endpoint_name }
